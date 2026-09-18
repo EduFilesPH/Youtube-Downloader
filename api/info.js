@@ -85,7 +85,7 @@ export default async function handler(req, res) {
 
   try {
     const youtube = await getYouTube();
-    const info = await youtube.getInfo(videoId, { client: 'TV_EMBEDDED' });
+    const info = await youtube.getInfo(videoId, { client: 'ANDROID_VR' });
     const basic = info.basic_info || {};
 
     if (basic.is_private) {
