@@ -1,5 +1,9 @@
 # YouTube Downloader
 
+## Live app
+
+https://youtube-downloader-mauve-nine.vercel.app
+
 A Vite + Vercel web app for downloading YouTube media that the user owns or has permission to save.
 
 ## Features
@@ -32,3 +36,7 @@ The frontend is deployed as a Vite static build, while `/api/info` and `/api/dow
 ## Usage notice
 
 Use only for content you own, public-domain or openly licensed media, or other content you are authorized to download. This project is not affiliated with YouTube or Google.
+
+## Deployment note
+
+The Vite frontend and Vercel API functions deploy successfully. However, YouTube may challenge requests coming from shared cloud/serverless IP ranges with `LOGIN_REQUIRED` / "Sign in to confirm you're not a bot". For reliable production downloading, keep this frontend on Vercel and use a dedicated processing backend with a current YouTube download stack.
