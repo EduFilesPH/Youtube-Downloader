@@ -97,8 +97,15 @@ export default async function handler(req, res) {
     }
 
     if (!info.streaming_data) {
-      const reason = info.playability_status?.reason || 'No downloadable stream data is available for this video.';
-      return res.status(422).json({ error: reason });
+      const reason = String(info.playability_status?.reason || '');
+      if (/sign in|not a bot|login/i.test(reason)) {
+        return res.status(503).json({
+          error: 'YouTube is temporarily blocking this server from retrieving the video. No user login is required or requested.'
+        });
+      }
+      return res.status(422).json({
+        error: reason || 'No downloadable stream data is available for this video.'
+      });
     }
 
     const combined = (info.streaming_data.formats || [])
@@ -132,8 +139,8 @@ export default async function handler(req, res) {
     const message = String(error?.message || '');
     const friendly = /429|rate limit/i.test(message)
       ? 'YouTube temporarily rate-limited this server. Please try again later.'
-      : /sign in|age|login|confirm/i.test(message)
-        ? 'This video requires additional access and cannot be downloaded by this public tool.'
+      : /sign in|not a bot|login|confirm/i.test(message)
+        ? 'YouTube is temporarily blocking this server from retrieving the video. No user login is required or requested.'
         : 'The video could not be retrieved right now. Please verify the link and try again.';
     return res.status(502).json({ error: friendly });
   }
