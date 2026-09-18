@@ -73,7 +73,7 @@ export default async function handler(req, res) {
 
   try {
     const youtube = await getYouTube();
-    const info = await youtube.getInfo(videoId, { client: 'TV_EMBEDDED' });
+    const info = await youtube.getInfo(videoId, { client: 'ANDROID_VR' });
     const basic = info.basic_info || {};
 
     if (basic.is_private || basic.is_live || basic.is_live_content || basic.is_upcoming) {
@@ -95,7 +95,7 @@ export default async function handler(req, res) {
       return res.status(404).json({ error: 'That format is no longer available. Analyze the video again.' });
     }
 
-    const stream = await info.download({ itag, client: 'TV_EMBEDDED' });
+    const stream = await info.download({ itag, client: 'ANDROID_VR' });
     const ext = extensionFor(format);
     const filename = `${safeName(basic.title)}.${ext}`;
 
