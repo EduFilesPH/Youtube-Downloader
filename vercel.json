@@ -1,0 +1,13 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/info.js": {
+      "maxDuration": 30
+    },
+    "api/download.js": {
+      "maxDuration": 60
+    }
+  }
+}
