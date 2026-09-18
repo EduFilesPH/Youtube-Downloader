@@ -14,7 +14,7 @@ app.innerHTML = `
       <div>
         <p class="eyebrow">Authorized media download tool</p>
         <h1>YouTube Downloader</h1>
-        <p class="lead">Paste a YouTube video link, review the available formats, then download a copy you are authorized to keep.</p>
+        <p class="lead">Paste a YouTube video link, review the available formats, then download a copy you are authorized to keep. No account or login required.</p>
       </div>
     </header>
 
@@ -106,7 +106,7 @@ app.innerHTML = `
           </div>
         </div>
 
-        <p class="footnote">This site is not affiliated with or endorsed by YouTube or Google.</p>
+        <p class="footnote">No account or login required. This site is not affiliated with or endorsed by YouTube or Google.</p>
       </div>
     </section>
   </main>
