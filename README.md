@@ -8,6 +8,8 @@ A Vite + Vercel web app for downloading YouTube media that the user owns or has 
 
 ## Features
 
+- No user account or login is required
+
 - Paste normal YouTube or Shorts URLs
 - Video metadata and thumbnail preview
 - Available combined video + audio source formats
